@@ -1,5 +1,10 @@
 FROM python:3.11
 
+# Update package list and install Graphviz
+RUN apt-get update && apt-get install -y \
+    graphviz \
+    && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
+
 # Set the working directory to /app
 WORKDIR /app
 
